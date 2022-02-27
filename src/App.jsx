@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { getFirestore } from "./firebase/index";
+import {
+  getFirestore,
+  getLoginGoogle,
+  getAuth,
+  logOut,
+} from "./firebase/index";
 
-function App() {
+const App = () => {
   const [tweets, setTweets] = useState([]);
   const [tweet, setTweet] = useState({
     tweet: "",
     autor: "",
+    uid: "",
+    email: "",
   });
+  const [user, setUser] = useState(null);
   useEffect(() => {
     const getTweets = getFirestore;
     getTweets.collection("Tweet").onSnapshot((snapshot) => {
@@ -16,10 +24,16 @@ function App() {
           tweet: doc.data().tweet,
           autor: doc.data().autor,
           id: doc.id,
+          likes: doc.data().likes,
         };
       });
       setTweets(tweets);
     });
+    getAuth.onAuthStateChanged((user) => {
+      setUser(user);
+      console.log(user);
+    });
+    return () => getTweets();
   }, []);
   const sendTweet = (e) => {
     e.preventDefault();
@@ -43,16 +57,38 @@ function App() {
     setTweets(nuevosTweets);
     getFirestore.doc(`Tweet/${id}`).delete();
   };
+
+  const likeTweet = (id, likes) => {
+    if (!likes) likes = 0;
+    getFirestore.doc(`Tweet/${id}`).update({ likes: likes + 1 });
+  };
   const handleChange = (e) => {
     let newTweet = {
-      ...tweet,
-      [e.target.name]: e.target.value,
+      // ...tweet,
+      // [e.target.name]: e.target.value,
+      tweet: e.target.value,
+      uid: user.uid,
+      email: user.email,
+      autor: user.displayName,
     };
     setTweet(newTweet);
   };
   console.log(tweet);
   return (
     <div className="App">
+      {user ? (
+        <>
+          <div className="user-profile">
+            <img src={user.photoURL} alt="user-img" />
+            <p>¡Hola {user.displayName}!</p>
+            <button onClick={logOut}>Log out</button>
+          </div>
+        </>
+      ) : (
+        <button className="logInGoogle" onClick={getLoginGoogle}>
+          Login con Google
+        </button>
+      )}
       <form className="form-tweet">
         <textarea
           cols="30"
@@ -76,15 +112,19 @@ function App() {
         return (
           <div key={tweet.id}>
             <span className="deleteTweet" onClick={() => deleteTweet(tweet.id)}>
-              <i class="fa-solid fa-trash-can"></i>
+              <i className="fa-solid fa-trash-can"></i>
             </span>
             <h1>{tweet.tweet}</h1>
             <h4>por: {tweet.autor}</h4>
+            <span onClick={() => likeTweet(tweet.id, tweet.likes)}>
+              <img src="./img/heart-red.svg" alt="like" />{" "}
+              <span>{tweet.likes ? tweet.likes : 0}</span>
+            </span>
           </div>
         );
       })}
     </div>
   );
-}
+};
 
 export default App;
