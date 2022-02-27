@@ -25,8 +25,12 @@ const App = () => {
           autor: doc.data().autor,
           id: doc.id,
           likes: doc.data().likes,
+          email: doc.data().email,
+          uid: doc.data().uid,
+          likedBy: doc.data().likedBy,
         };
       });
+      console.log(tweets);
       setTweets(tweets);
     });
     getAuth.onAuthStateChanged((user) => {
@@ -37,7 +41,7 @@ const App = () => {
   }, []);
   const sendTweet = (e) => {
     e.preventDefault();
-    let enviarTweet = getFirestore.collection("Tweet").add(tweet);
+    const enviarTweet = getFirestore.collection("Tweet").add(tweet);
     let askPermiso = enviarTweet.then((docRef) => {
       return docRef.get();
     });
@@ -46,6 +50,9 @@ const App = () => {
         tweet: doc.data().tweet,
         autor: doc.data().autor,
         id: doc.id,
+        likes: doc.data().likes,
+        email: doc.data().email,
+        uid: doc.data().uid,
       };
       setTweets([nuevoTweet, ...tweets]);
     });
@@ -58,9 +65,59 @@ const App = () => {
     getFirestore.doc(`Tweet/${id}`).delete();
   };
 
-  const likeTweet = (id, likes) => {
-    if (!likes) likes = 0;
-    getFirestore.doc(`Tweet/${id}`).update({ likes: likes + 1 });
+  const likeTweet = (id, uid, likedBy, likes) => {
+    // if (!likes) likes = 0;
+    // getFirestore.doc(`Tweet/${id}`).update({ likes: likes + 1 });
+    let newLikedBy = [...likedBy, uid];
+    getFirestore.doc(`Tweet/${id}`).update({ likedBy: newLikedBy });
+  };
+
+  const dislikeTweet = (id, uid, likedBy) => {
+    const newLikedBy = likedBy.filter((userUid) => uid !== userUid);
+    getFirestore.doc(`Tweet/${id}`).update({ likedBy: newLikedBy });
+  };
+
+  const showLikes = (listLikes, likes, id) => {
+    console.log(listLikes);
+    if (listLikes && user) {
+      const youLike = listLikes.findIndex((likero) => user.uid === likero);
+      // no tiene like
+      if (youLike < 0) {
+        return (
+          <>
+            <span onClick={() => likeTweet(listLikes, id, user.uid, likes)}>
+              <img src="./img/heart-red.svg" alt="like" />{" "}
+              <span>{listLikes.length}</span>
+            </span>
+          </>
+        );
+      } else {
+        // ya le dio like
+        return (
+          <>
+            <span
+              onClick={() => dislikeTweet(listLikes, id, user.uid, likes)}
+              className="dislike"
+            >
+              <img src="./img/heart-red.svg" alt="like" />
+              <span>{listLikes.length}</span>
+            </span>
+          </>
+        );
+      }
+    } else {
+      return (
+        <>
+          <span
+            onClick={() => likeTweet(listLikes, id, user.uid, likes)}
+            className="like"
+          >
+            <img src="./img/heart-red.svg" alt="like" />
+            <span>{likes ? likes : 0}</span>
+          </span>
+        </>
+      );
+    }
   };
   const handleChange = (e) => {
     let newTweet = {
@@ -70,6 +127,7 @@ const App = () => {
       uid: user.uid,
       email: user.email,
       autor: user.displayName,
+      likedBy: [],
     };
     setTweet(newTweet);
   };
@@ -98,13 +156,6 @@ const App = () => {
           value={tweet.tweet}
           placeholder="Escribe un tweet..."
         ></textarea>
-        <input
-          type="text"
-          name="autor"
-          id="autor"
-          value={tweet.autor}
-          onChange={handleChange}
-        />
         <input type="submit" value="Publicar Tweet" onClick={sendTweet} />
       </form>
       <h1>Tweets:</h1>
@@ -116,10 +167,12 @@ const App = () => {
             </span>
             <h1>{tweet.tweet}</h1>
             <h4>por: {tweet.autor}</h4>
-            <span onClick={() => likeTweet(tweet.id, tweet.likes)}>
+            <h4>{tweet.email}</h4>
+            {/* <span onClick={() => likeTweet(tweet.id, tweet.likes)}>
               <img src="./img/heart-red.svg" alt="like" />{" "}
               <span>{tweet.likes ? tweet.likes : 0}</span>
-            </span>
+            </span> */}
+            {showLikes(tweet.likedBy, tweet.id, tweet.likes)}
           </div>
         );
       })}
