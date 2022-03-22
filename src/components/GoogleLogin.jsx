@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useProtectedContext } from "../context/Protected";
-import { getAuth, getLoginGoogle, logOut } from "../firebase/index";
+import { getAuth, getLoginGoogle } from "../firebase/index";
+import Home from "../pages/Home";
 
 const GoogleLogin = () => {
   const [user, setUser] = useProtectedContext();
@@ -13,16 +14,10 @@ const GoogleLogin = () => {
   return (
     <div className="GoogleLogin">
       {user ? (
-        <>
-          <div className="user-profile">
-            <img src={user.photoURL} alt="user-img" />
-            <p>¡Hola {user.displayName}!</p>
-            <button onClick={logOut}>Log out</button>
-          </div>
-        </>
+        <Home />
       ) : (
         <button className="logInGoogle" onClick={getLoginGoogle}>
-          Login con Google
+          <img src="./img/login-google.svg" alt="login-google" />
         </button>
       )}
     </div>

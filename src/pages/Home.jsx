@@ -10,7 +10,10 @@ const Home = () => {
   return (
     <div>
       <NavBar />
-      <SendTweet />
+      <div className="sendddd">
+        <img src={user.photoURL} alt="user-img" />
+        <SendTweet />
+      </div>
     </div>
   );
 };

@@ -3,28 +3,32 @@ import { getFirestore } from "../firebase";
 
 const Tweets = ({ tweets, setTweets, tweet, setTweet, user, setUser }) => {
   useEffect(() => {
-    const getTweets = getFirestore.collection("Tweet").onSnapshot(
-      (snapshot) => {
-        const tweets = snapshot.docs.map((doc) => {
-          const data = doc.data();
-          return {
-            tweet: data.tweet,
-            autor: data.autor,
-            id: doc.id,
-            likes: data.likes,
-            email: data.email,
-            uid: data.uid,
-            likedBy: data.likedBy,
-          };
-        });
-        console.log("onSnap", tweets);
-        setTweets(tweets);
-      },
-      (err) => console.log(err, "error on")
-    );
-
+    const getTweets = getFirestore
+      .collection("Tweet")
+      .orderBy("dateCreation", "desc")
+      .onSnapshot(
+        (snapshot) => {
+          const tweets = snapshot.docs.map((doc) => {
+            const data = doc.data();
+            return {
+              tweet: data.tweet,
+              autor: data.autor,
+              id: doc.id,
+              likes: data.likes,
+              email: data.email,
+              uid: data.uid,
+              likedBy: data.likedBy,
+              dateCreation: data.dateCreation,
+            };
+          });
+          console.log("onSnap", tweets);
+          setTweets(tweets);
+        },
+        (err) => console.log(err, "error on")
+      );
     return () => getTweets();
   }, []);
+
   const deleteTweet = (id) => {
     const nuevosTweets = tweets.filter((tweet) => {
       return tweet.id !== id;
@@ -34,8 +38,6 @@ const Tweets = ({ tweets, setTweets, tweet, setTweet, user, setUser }) => {
   };
 
   const likeTweet = (id, likedBy, likes) => {
-    // if (!likes) likes = 0;
-    // getFirestore.doc(`Tweet/${id}`).update({ likes: likes + 1 });
     console.log("el uid", user.uid);
     let newLikedBy = [...likedBy, user.uid];
     getFirestore
@@ -56,14 +58,14 @@ const Tweets = ({ tweets, setTweets, tweet, setTweet, user, setUser }) => {
       .catch((err) => console.log(err, "error"));
   };
 
-  const showLikes = (listLikes, id) => {
+  const showLikes = (listLikes, id, likedBy) => {
     const youLike = listLikes?.some((likero) => user?.uid === likero);
     if ((Array.isArray(listLikes) && listLikes.length === 0) || !youLike) {
       return (
         <>
           <span onClick={() => likeTweet(id, listLikes)}>
-            <img src="./img/heart-red.svg" alt="like" />{" "}
-            <span>{listLikes.length}</span>
+            <img src="./img/heart-white.svg" alt="like" />{" "}
+            <span>{listLikes?.length}</span>
           </span>
         </>
       );
@@ -72,14 +74,14 @@ const Tweets = ({ tweets, setTweets, tweet, setTweet, user, setUser }) => {
       <>
         <span onClick={() => dislikeTweet(id, listLikes)} className="dislike">
           <img src="./img/heart-red.svg" alt="like" />
-          <span>{listLikes.length}</span>
+          <span>{listLikes?.length}</span>
         </span>
       </>
     );
   };
   return (
     <>
-      <h1>Tweets:</h1>
+      <h2>Tweets:</h2>
       {tweets.map((tweet) => {
         return (
           <div key={tweet.id}>

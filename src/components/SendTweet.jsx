@@ -12,10 +12,10 @@ const SendTweet = () => {
     uid: "",
     email: "",
   });
+
   const handleChange = (e) => {
     let newTweet = {
-      // ...tweet,
-      // [e.target.name]: e.target.value,
+      dateCreation: new Date(),
       tweet: e.target.value,
       uid: user.uid,
       email: user.email,
@@ -38,6 +38,7 @@ const SendTweet = () => {
         likes: doc.data().likes,
         email: doc.data().email,
         uid: doc.data().uid,
+        dateCreation: doc.data().dateCreation,
       };
       setTweets([nuevoTweet, ...tweets]);
     });
@@ -49,11 +50,12 @@ const SendTweet = () => {
           cols="30"
           rows="5"
           name="tweet"
+          maxLength="200"
           onChange={handleChange}
           value={tweet.tweet}
-          placeholder="Escribe un tweet..."
+          placeholder="What's happening?"
         ></textarea>
-        <input type="submit" value="Publicar Tweet" onClick={sendTweet} />
+        <input type="submit" value="POST" onClick={sendTweet} />
       </form>
       <Tweets
         tweets={tweets}

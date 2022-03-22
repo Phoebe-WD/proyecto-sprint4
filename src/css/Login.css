@@ -1,0 +1,50 @@
+.Login {
+  width: 85%;
+  height: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.Login .img-cont,
+.Login .Login-Cont {
+  width: 50%;
+}
+.Login .Login-Cont {
+  padding: 10px;
+}
+.Login-Cont h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+.Login-Cont p {
+  margin: 0 auto;
+  width: 85%;
+  font-size: 24px;
+  font-weight: 450;
+  text-align: justify;
+}
+.Login-Cont h1,
+.Login-Cont p {
+  color: #fff;
+}
+.logInGoogle {
+  border: none;
+  background-color: #2e132c;
+  padding: none;
+  margin: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.logInGoogle img {
+  cursor: pointer;
+}
+.footer-login {
+  color: #60265b;
+  font-size: 18px;
+  font-weight: 450;
+}
+.footer-login span {
+  color: #f50d5a;
+}
