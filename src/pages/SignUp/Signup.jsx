@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Home from "./Home";
-import MyProfile from "./MyProfile";
-import MyTweets from "../components/MyTweets";
-import MyFavs from "../components/MyFavs";
+import Login from "../Login/Login";
+import Home from "../Home/Home";
+import MyProfile from "../MyProfile/MyProfile";
+import MyTweets from "../../components/MyTweets/MyTweets";
+import MyFavs from "../../components/MyFavs/MyFavs";
 
 const Signup = () => {
   return (

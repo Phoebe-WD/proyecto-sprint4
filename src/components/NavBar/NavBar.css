@@ -1,0 +1,41 @@
+.NavBar {
+  width: 100%;
+  height: 52px;
+  background-color: #250c23;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.NavBar-Container {
+  width: 40%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  height: 52px;
+}
+
+.NavBar-Container .profile-foto,
+.NavBar-Container .nav-logo,
+.NavBar-Container .nav-title {
+  width: 33.3%;
+}
+
+.NavBar-Container .profile-img {
+  height: 33px;
+  width: 33px;
+  border-radius: 50%;
+}
+
+.NavBar-Container .logo-nav {
+  width: 45px;
+  height: 27px;
+}
+.NavBar-Container .logo-nav-title {
+  width: 159px;
+  height: 15px;
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import SendTweet from "./components/SendTweet";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import SendTweet from "./components/SendTweet/SendTweet";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/SignUp/Signup";
 
 const App = () => {
   return (

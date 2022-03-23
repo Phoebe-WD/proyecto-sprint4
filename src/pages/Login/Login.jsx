@@ -1,11 +1,11 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import GoogleLogin from "../components/GoogleLogin";
-import "../css/Login.css";
-import { useProtectedContext } from "../context/Protected";
+import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
+import "./Login.css";
+import { useProtectedContext } from "../../context/Protected";
 
 const Login = () => {
-  const [user, setUser] = useProtectedContext();
+  const { user } = useProtectedContext();
 
   if (user) return <Navigate to="/Home" />;
   return (

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useProtectedContext } from "../context/Protected";
-import { getFirestore } from "../firebase";
-import Tweets from "./Tweets";
+import { useProtectedContext } from "../../context/Protected";
+import { getFirestore } from "../../firebase";
+import Tweets from "../Tweets/Tweets";
+import "./SendTweet.css";
 
 const SendTweet = () => {
-  const [user, setUser] = useProtectedContext();
-  const [tweets, setTweets] = useState([]);
+  const { user, setUser, setTweets, tweets } = useProtectedContext();
   const [tweet, setTweet] = useState({
     tweet: "",
     autor: "",
@@ -38,25 +38,33 @@ const SendTweet = () => {
         likes: doc.data().likes,
         email: doc.data().email,
         uid: doc.data().uid,
+        likedBy: doc.data().likedBy,
         dateCreation: doc.data().dateCreation,
       };
       setTweets([nuevoTweet, ...tweets]);
     });
   };
   return (
-    <>
-      <form className="form-tweet">
-        <textarea
-          cols="30"
-          rows="5"
-          name="tweet"
-          maxLength="200"
-          onChange={handleChange}
-          value={tweet.tweet}
-          placeholder="What's happening?"
-        ></textarea>
-        <input type="submit" value="POST" onClick={sendTweet} />
-      </form>
+    <div className="SendTweet">
+      <div className="sendtwettcont">
+        <div className="Post-Container">
+          <div className="Post-img">
+            <img src={user.photoURL} alt="user-img" />
+          </div>
+          <form className="form-tweet">
+            <textarea
+              cols="30"
+              rows="5"
+              name="tweet"
+              maxLength="200"
+              onChange={handleChange}
+              value={tweet.tweet}
+              placeholder="What's happening?"
+            ></textarea>
+            <input type="submit" value="POST" onClick={sendTweet} />
+          </form>
+        </div>
+      </div>
       <Tweets
         tweets={tweets}
         setTweets={setTweets}
@@ -65,7 +73,7 @@ const SendTweet = () => {
         user={user}
         setUser={setUser}
       />
-    </>
+    </div>
   );
 };
 

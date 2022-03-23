@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { useProtectedContext } from "../context/Protected";
-import { getAuth, getLoginGoogle } from "../firebase/index";
-import Home from "../pages/Home";
+import { useProtectedContext } from "../../context/Protected";
+import { getAuth, getLoginGoogle } from "../../firebase/index";
+import Home from "../../pages/Home/Home";
 
 const GoogleLogin = () => {
-  const [user, setUser] = useProtectedContext();
+  const { user, setUser } = useProtectedContext();
   useEffect(() => {
     getAuth.onAuthStateChanged((user) => {
       setUser(user);

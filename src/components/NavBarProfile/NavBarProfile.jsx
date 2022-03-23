@@ -1,10 +1,10 @@
 import React from "react";
-import { useProtectedContext } from "../context/Protected";
-import { logOut } from "../firebase/index";
+import { useProtectedContext } from "../../context/Protected";
+import { logOut } from "../../firebase/index";
 import { Link } from "react-router-dom";
 
 const NavBarProfile = () => {
-  const [user, setUser] = useProtectedContext();
+  const { user } = useProtectedContext();
   return (
     <header className="NavBarProfile">
       <nav>
