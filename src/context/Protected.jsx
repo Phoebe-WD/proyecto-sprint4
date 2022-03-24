@@ -7,6 +7,7 @@ export const useProtectedContext = () => useContext(Context);
 
 const ProtectedContext = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [img, setImg] = useState(null);
   const [tweets, setTweets] = useState([]);
   useEffect(() => {
     const getTweets = getFirestore
@@ -20,11 +21,11 @@ const ProtectedContext = ({ children }) => {
               tweet: data.tweet,
               autor: data.autor,
               id: doc.id,
-              likes: data.likes,
               email: data.email,
               uid: data.uid,
               likedBy: data.likedBy,
               dateCreation: data.dateCreation,
+              img: data.img,
             };
           });
           console.log("onSnap", tweets);
@@ -43,7 +44,7 @@ const ProtectedContext = ({ children }) => {
     getFirestore.doc(`Tweet/${id}`).delete();
   };
 
-  const likeTweet = (id, likedBy, likes) => {
+  const likeTweet = (id, likedBy) => {
     console.log("el uid", user.uid);
     let newLikedBy = [...likedBy, user.uid];
     getFirestore
@@ -69,25 +70,40 @@ const ProtectedContext = ({ children }) => {
     if ((Array.isArray(listLikes) && listLikes.length === 0) || !youLike) {
       return (
         <>
-          <span onClick={() => likeTweet(id, listLikes)}>
+          <span
+            onClick={() => likeTweet(id, listLikes)}
+            className="container-like"
+          >
             <img src="./img/heart-white.svg" alt="like" />{" "}
-            <span>{listLikes.length}</span>
+            <span className="count-likes">{listLikes.length}</span>
           </span>
         </>
       );
     }
     return (
       <>
-        <span onClick={() => dislikeTweet(id, listLikes)} className="dislike">
+        <span
+          onClick={() => dislikeTweet(id, listLikes)}
+          className="container-like"
+        >
           <img src="./img/heart-red.svg" alt="like" />
-          <span>{listLikes.length}</span>
+          <span className="count-likes">{listLikes.length}</span>
         </span>
       </>
     );
   };
   return (
     <Context.Provider
-      value={{ user, setUser, showLikes, setTweets, tweets, deleteTweet }}
+      value={{
+        user,
+        setUser,
+        showLikes,
+        setTweets,
+        tweets,
+        deleteTweet,
+        img,
+        setImg,
+      }}
     >
       {children}
     </Context.Provider>

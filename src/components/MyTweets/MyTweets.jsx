@@ -24,11 +24,11 @@ const MyTweets = () => {
                       <i className="fa-solid fa-trash-can"></i>
                     </span>
                   )}
-                  <h1>{tweet.id}</h1>
+                  <img src={tweet.img} alt="user-img" />
                   <h1>{tweet.tweet}</h1>
                   <h4>por: {tweet.autor}</h4>
                   <h4>{tweet.email}</h4>
-                  {showLikes(tweet.likedBy, tweet.id, tweet.likes)}
+                  {showLikes(tweet.likedBy, tweet.id)}
                 </div>
               );
             }

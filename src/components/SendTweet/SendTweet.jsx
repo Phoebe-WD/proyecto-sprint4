@@ -11,6 +11,7 @@ const SendTweet = () => {
     autor: "",
     uid: "",
     email: "",
+    img: "",
   });
 
   const handleChange = (e) => {
@@ -21,6 +22,7 @@ const SendTweet = () => {
       email: user.email,
       autor: user.displayName,
       likedBy: [],
+      img: user.photoURL,
     };
     setTweet(newTweet);
   };
@@ -35,11 +37,11 @@ const SendTweet = () => {
         tweet: doc.data().tweet,
         autor: doc.data().autor,
         id: doc.id,
-        likes: doc.data().likes,
         email: doc.data().email,
         uid: doc.data().uid,
         likedBy: doc.data().likedBy,
         dateCreation: doc.data().dateCreation,
+        img: doc.data().img,
       };
       setTweets([nuevoTweet, ...tweets]);
     });
