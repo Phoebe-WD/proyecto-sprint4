@@ -1,7 +1,7 @@
-.NavBarProfile {
+.MyProfile {
   width: 100%;
 }
-.NavBarProfile nav {
+.MyProfile .NavBarProfile nav {
   width: 80%;
   height: 52px;
   margin: 0 auto;
@@ -11,21 +11,19 @@
   align-items: center;
 }
 
-.NavBarProfile nav .nav-content {
+.MyProfile .NavBarProfile nav .nav-content {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   gap: 15px;
 }
-.NavBarProfile nav .nav-content img {
+.MyProfile .NavBarProfile nav .nav-content img {
   width: 28px;
   height: 20px;
 }
-.MyTweets .NavBarProfile nav .nav-content .name-profile,
-.MyTweets .NavBarProfile .my-profile .author p.autor-name,
-.MyFavs .NavBarProfile nav .nav-content .name-profile,
-.MyFavs .NavBarProfile .my-profile .author p.autor-name {
+.MyProfile .NavBarProfile nav .nav-content .name-profile,
+.MyProfile .NavBarProfile .my-profile .author p.autor-name {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -34,23 +32,23 @@
   font-size: 20px;
   line-height: 20px;
 }
-.NavBarProfile .my-profile {
+.MyProfile .NavBarProfile .my-profile {
   background-color: #150714;
   padding: 10px;
 }
 
-.NavBarProfile .my-profile img {
+.MyProfile .NavBarProfile .my-profile img {
   border-radius: 50%;
 }
-.NavBarProfile .btn-profile {
+.MyProfile .NavBarProfile .btn-profile {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.NavBarProfile .btn-profile a {
+.MyProfile .NavBarProfile .btn-profile a {
   text-decoration: none;
 }
-.NavBarProfile .btn-profile .posts {
+.MyProfile .NavBarProfile .btn-profile .posts {
   background-color: #60265b;
   font-family: "Silkscreen", sans-serif;
   font-weight: 700;
@@ -64,7 +62,7 @@
   padding: 5px;
   cursor: pointer;
 }
-.NavBarProfile .btn-profile .favs {
+.MyProfile .NavBarProfile .btn-profile .favs {
   background-color: #150714;
   font-family: "Silkscreen", sans-serif;
   font-weight: 700;
@@ -79,11 +77,11 @@
   cursor: pointer;
 }
 
-.btn-logout {
+.MyProfile .btn-logout {
   text-decoration: none;
 }
 
-.btn-inside-logout {
+.MyProfile .btn-inside-logout {
   width: 116px;
   height: 35px;
   background-color: #f50d5a;

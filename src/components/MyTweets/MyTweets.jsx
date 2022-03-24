@@ -2,6 +2,7 @@ import React from "react";
 import { useProtectedContext } from "../../context/Protected";
 import { Navigate } from "react-router-dom";
 import NavBarProfile from "../NavBarProfile/NavBarProfile";
+import "./MyTweets.css";
 
 const MyTweets = () => {
   const { deleteTweet, tweets, showLikes, user } = useProtectedContext();
@@ -9,26 +10,35 @@ const MyTweets = () => {
   return (
     <div className="MyTweets">
       <NavBarProfile />
-      <h2>My Tweets:</h2>
       {tweets &&
         tweets.map((tweet) => {
           {
             if (tweet.email === user.email) {
               return (
-                <div key={tweet.id}>
-                  {user?.uid === tweet.uid && (
-                    <span
-                      className="deleteTweet"
-                      onClick={() => deleteTweet(tweet.id)}
-                    >
-                      <i className="fa-solid fa-trash-can"></i>
-                    </span>
-                  )}
-                  <img src={tweet.img} alt="user-img" />
-                  <h1>{tweet.tweet}</h1>
-                  <h4>por: {tweet.autor}</h4>
-                  <h4>{tweet.email}</h4>
-                  {showLikes(tweet.likedBy, tweet.id)}
+                <div key={tweet.id} className="Tweet-Content">
+                  <div className="Tweet-autor">
+                    <div className="tweet-img-autor">
+                      <img src={tweet.img} alt="user-img" />
+                    </div>
+                    <div className="tweet-autor-name">
+                      <h4> {tweet.autor}</h4>
+                    </div>
+                    {user?.uid === tweet.uid && (
+                      <div className="tweet-trash">
+                        <span
+                          className="deleteTweet"
+                          onClick={() => deleteTweet(tweet.id)}
+                        >
+                          <i className="fa-solid fa-trash-can"></i>
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <p className="tweet-text">{tweet.tweet}</p>
+                  <div className="likes">
+                    {showLikes(tweet.likedBy, tweet.id)}
+                  </div>
                 </div>
               );
             }

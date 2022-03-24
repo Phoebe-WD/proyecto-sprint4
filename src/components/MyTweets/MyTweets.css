@@ -1,0 +1,89 @@
+.MyTweets {
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.MyTweets .Tweet-Content {
+  width: 600px;
+  border-bottom: 2px solid #60265b;
+  padding: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.MyTweets .Tweet-autor {
+  width: 700px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.MyTweets .Tweet-autor .tweet-img-autor,
+.MyTweets .Tweet-autor .tweet-autor-name,
+.MyTweets .Tweet-autor .tweet-trash {
+  width: 33.3%;
+}
+
+.MyTweets .Tweet-autor img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+.MyTweets .Tweet-autor .tweet-autor-name h4 {
+  background-color: #800fff;
+  width: 100%;
+  height: 20px;
+  color: #2e132c;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 5px solid #800fff;
+  text-align: left;
+}
+.MyTweets .Tweet-autor .tweet-trash {
+  justify-self: flex-end;
+}
+.MyTweets .Tweet-autor .tweet-trash .fa-solid.fa-trash-can {
+  color: #fff;
+}
+
+.MyTweets .tweet-text {
+  width: 500px;
+  height: 136px;
+  color: #fff;
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 450;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+.MyTweets .likes {
+  margin-left: 7%;
+  align-self: flex-start;
+}
+.MyTweets .likes .container-like {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.MyTweets .likes img {
+  width: 24px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.MyTweets .likes .count-likes {
+  color: #f50d5a;
+}

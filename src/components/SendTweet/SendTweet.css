@@ -37,9 +37,9 @@
   height: 113px;
   background-color: #2f112d;
   color: #914d8b;
-  font-family: "Fira Code";
   font-weight: 450;
   font-size: 20px;
+  font-family: "Silkscreen", sans-serif;
   border: none;
   padding: 5px;
   border: 1px solid #914d8b;
@@ -48,6 +48,7 @@
 .Post-Container .form-tweet input[type="submit"] {
   width: 102px;
   height: 35px;
+  font-family: "Silkscreen", sans-serif;
   background-color: #2f112d;
   color: #150714;
   border: none;
