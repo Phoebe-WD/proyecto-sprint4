@@ -95,4 +95,151 @@
   display: flex;
   align-items: center;
   color: #250c23;
+  cursor: pointer;
+}
+
+/* MEDIA QUERIES */
+/* MOBILE S */
+@media screen and (min-width: 319px) and (max-width: 374px) {
+  .NavBarProfile nav {
+    width: 90%;
+    height: 52px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .NavBarProfile nav .nav-content {
+    gap: 5px;
+  }
+  .MyTweets .NavBarProfile nav .nav-content .name-profile,
+  .MyTweets .NavBarProfile .my-profile .author p.autor-name,
+  .MyFavs .NavBarProfile nav .nav-content .name-profile,
+  .MyFavs .NavBarProfile .my-profile .author p.autor-name {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  .MyTweets .NavBarProfile nav .nav-content .name-profile,
+  .MyFavs .NavBarProfile nav .nav-content .name-profile {
+    align-self: flex-start;
+    text-align: left;
+  }
+  .NavBarProfile .btn-profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .NavBarProfile .btn-profile .favs,
+  .NavBarProfile .btn-profile .posts {
+    font-size: 16px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .NavBarProfile .btn-profile a {
+    width: 100%;
+  }
+}
+/* Mobile M */
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .NavBarProfile nav {
+    width: 90%;
+    height: 52px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .NavBarProfile nav .nav-content {
+    gap: 0px;
+  }
+  .MyTweets .NavBarProfile nav .nav-content .name-profile,
+  .MyTweets .NavBarProfile .my-profile .author p.autor-name,
+  .MyFavs .NavBarProfile nav .nav-content .name-profile,
+  .MyFavs .NavBarProfile .my-profile .author p.autor-name {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  .MyTweets .NavBarProfile nav .nav-content .name-profile,
+  .MyFavs .NavBarProfile nav .nav-content .name-profile {
+    align-self: flex-start;
+    text-align: left;
+  }
+  .NavBarProfile .btn-profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .NavBarProfile .btn-profile .favs,
+  .NavBarProfile .btn-profile .posts {
+    font-size: 16px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .NavBarProfile .btn-profile a {
+    width: 100%;
+  }
+}
+/* Mobile L */
+@media screen and (min-width: 425px) and (max-width: 767.98px) {
+  .NavBarProfile nav {
+    width: 90%;
+    height: 52px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .NavBarProfile nav .nav-content {
+    gap: 5px;
+  }
+  .MyTweets .NavBarProfile nav .nav-content .name-profile,
+  .MyTweets .NavBarProfile .my-profile .author p.autor-name,
+  .MyFavs .NavBarProfile nav .nav-content .name-profile,
+  .MyFavs .NavBarProfile .my-profile .author p.autor-name {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  .MyTweets .NavBarProfile nav .nav-content .name-profile,
+  .MyFavs .NavBarProfile nav .nav-content .name-profile {
+    align-self: flex-start;
+    text-align: left;
+  }
+  .NavBarProfile .btn-profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .NavBarProfile .btn-profile .favs,
+  .NavBarProfile .btn-profile .posts {
+    font-size: 16px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .NavBarProfile .btn-profile a {
+    width: 100%;
+  }
 }

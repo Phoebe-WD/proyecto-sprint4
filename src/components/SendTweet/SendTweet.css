@@ -64,3 +64,28 @@
   background-color: #914d8b;
   border: 1px solid #2f112d;
 }
+/* MEDIA QUERIES */
+/* MOBILE S */
+@media screen and (min-width: 319px) and (max-width: 374px) {
+  .Post-Container {
+    width: 90%;
+  }
+}
+/* Mobile M */
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .Post-Container {
+    width: 90%;
+  }
+}
+/* Mobile L */
+@media screen and (min-width: 425px) and (max-width: 767.98px) {
+  .Post-Container {
+    width: 90%;
+  }
+}
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023.98px) {
+  .Post-Container {
+    width: 90%;
+  }
+}

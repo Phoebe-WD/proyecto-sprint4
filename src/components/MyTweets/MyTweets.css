@@ -87,3 +87,102 @@
 .MyTweets .likes .count-likes {
   color: #f50d5a;
 }
+/* MEDIA QUERIES */
+/* MOBILE S */
+@media screen and (min-width: 319px) and (max-width: 374px) {
+  .MyTweets .Tweet-Content {
+    width: 100%;
+    padding: 10px;
+  }
+  .MyTweets .Tweet-autor {
+    width: 100%;
+    gap: 15px;
+  }
+  .MyTweets .Tweet-autor .tweet-img-autor,
+  .MyTweets .Tweet-autor .tweet-autor-name,
+  .MyTweets .Tweet-autor .tweet-trash {
+    width: auto;
+  }
+  .MyTweets .tweet-text {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 5px;
+  }
+  .MyTweets .likes {
+    margin-left: 2%;
+    align-self: flex-start;
+  }
+}
+/* Mobile M */
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .MyTweets .Tweet-Content {
+    width: 100%;
+    padding: 10px;
+  }
+  .MyTweets .Tweet-autor {
+    width: 100%;
+    gap: 15px;
+  }
+  .MyTweets .Tweet-autor .tweet-img-autor,
+  .MyTweets .Tweet-autor .tweet-autor-name,
+  .MyTweets .Tweet-autor .tweet-trash {
+    width: auto;
+  }
+  .MyTweets .tweet-text {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 5px;
+  }
+  .MyTweets .likes {
+    margin-left: 2%;
+    align-self: flex-start;
+  }
+}
+/* Mobile L */
+@media screen and (min-width: 425px) and (max-width: 767.98px) {
+  .MyTweets .Tweet-Content {
+    width: 100%;
+    padding: 10px;
+  }
+  .MyTweets .Tweet-autor {
+    width: 100%;
+    gap: 15px;
+  }
+  .MyTweets .Tweet-autor .tweet-img-autor,
+  .MyTweets .Tweet-autor .tweet-autor-name,
+  .MyTweets .Tweet-autor .tweet-trash {
+    width: auto;
+  }
+  .MyTweets .tweet-text {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 5px;
+  }
+  .MyTweets .likes {
+    margin-left: 2%;
+    align-self: flex-start;
+  }
+}
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023.98px) {
+  .MyTweets .Tweet-Content {
+    width: 90%;
+  }
+  .MyTweets .likes {
+    margin-left: 12%;
+    align-self: flex-start;
+  }
+}
+/*TABLET GRANDE */
+@media screen and (min-width: 1024px) and (max-width: 1299.98px) {
+  .MyTweets .Tweet-Content {
+    width: 90%;
+  }
+  .MyTweets .likes {
+    margin-left: 22%;
+    align-self: flex-start;
+  }
+}

@@ -39,3 +39,64 @@
   width: 159px;
   height: 15px;
 }
+/* MEDIA QUERIES */
+/* MOBILE S */
+@media screen and (min-width: 319px) and (max-width: 374px) {
+  .NavBar-Container {
+    width: 90%;
+    height: 52px;
+  }
+  .NavBar-Container .profile-foto,
+  .NavBar-Container .nav-logo,
+  .NavBar-Container .nav-title {
+    width: auto;
+  }
+}
+/* Mobile M */
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .NavBar-Container {
+    width: 90%;
+    height: 52px;
+  }
+  .NavBar-Container .profile-foto,
+  .NavBar-Container .nav-logo,
+  .NavBar-Container .nav-title {
+    width: auto;
+  }
+}
+/* Mobile L */
+@media screen and (min-width: 425px) and (max-width: 767.98px) {
+  .NavBar-Container {
+    width: 90%;
+    height: 52px;
+  }
+  .NavBar-Container .profile-foto,
+  .NavBar-Container .nav-logo,
+  .NavBar-Container .nav-title {
+    width: auto;
+  }
+}
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023.98px) {
+  .NavBar-Container {
+    width: 90%;
+    height: 52px;
+  }
+  .NavBar-Container .profile-foto,
+  .NavBar-Container .nav-logo,
+  .NavBar-Container .nav-title {
+    width: auto;
+  }
+}
+/*TABLET GRANDE */
+@media screen and (min-width: 1024px) and (max-width: 1299.98px) {
+  .NavBar-Container {
+    width: 90%;
+    height: 52px;
+  }
+  .NavBar-Container .profile-foto,
+  .NavBar-Container .nav-logo,
+  .NavBar-Container .nav-title {
+    width: auto;
+  }
+}

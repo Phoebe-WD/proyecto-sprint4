@@ -87,3 +87,102 @@
 .Tweets .likes .count-likes {
   color: #f50d5a;
 }
+/* MEDIA QUERIES */
+/* MOBILE S */
+@media screen and (min-width: 319px) and (max-width: 374px) {
+  .Tweets .Tweet-Content {
+    width: 100%;
+    padding: 10px;
+  }
+  .Tweets .Tweet-autor {
+    width: 100%;
+    gap: 15px;
+  }
+  .Tweets .Tweet-autor .tweet-img-autor,
+  .Tweets .Tweet-autor .tweet-autor-name,
+  .Tweets .Tweet-autor .tweet-trash {
+    width: auto;
+  }
+  .Tweets p {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 5px;
+  }
+  .Tweets .likes {
+    margin-left: 2%;
+    align-self: flex-start;
+  }
+}
+/* Mobile M */
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .Tweets .Tweet-Content {
+    width: 100%;
+    padding: 10px;
+  }
+  .Tweets .Tweet-autor {
+    width: 100%;
+    gap: 15px;
+  }
+  .Tweets .Tweet-autor .tweet-img-autor,
+  .Tweets .Tweet-autor .tweet-autor-name,
+  .Tweets .Tweet-autor .tweet-trash {
+    width: auto;
+  }
+  .Tweets p {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 5px;
+  }
+  .Tweets .likes {
+    margin-left: 2%;
+    align-self: flex-start;
+  }
+}
+/* Mobile L */
+@media screen and (min-width: 425px) and (max-width: 767.98px) {
+  .Tweets .Tweet-Content {
+    width: 100%;
+    padding: 10px;
+  }
+  .Tweets .Tweet-autor {
+    width: 100%;
+    gap: 15px;
+  }
+  .Tweets .Tweet-autor .tweet-img-autor,
+  .Tweets .Tweet-autor .tweet-autor-name,
+  .Tweets .Tweet-autor .tweet-trash {
+    width: auto;
+  }
+  .Tweets p {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 5px;
+  }
+  .Tweets .likes {
+    margin-left: 2%;
+    align-self: flex-start;
+  }
+}
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023.98px) {
+  .Tweets .Tweet-Content {
+    width: 90%;
+  }
+  .Tweets .likes {
+    margin-left: 12%;
+    align-self: flex-start;
+  }
+}
+/*TABLET GRANDE */
+@media screen and (min-width: 1024px) and (max-width: 1299.98px) {
+  .Tweets .Tweet-Content {
+    width: 90%;
+  }
+  .Tweets .likes {
+    margin-left: 22%;
+    align-self: flex-start;
+  }
+}
