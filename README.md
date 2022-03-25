@@ -6,7 +6,7 @@ Created as a project for Acamica Academy course of Front End Development.
 
 This is a Devs United project like a Twitter web designed by Acamica to their students who has to replicate it😊
 
-[Deploy site soon](/)
+[Deploy site](https://project-sprint4.web.app/)
 
 ### Languages and tools used 👩‍💻
 
