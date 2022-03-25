@@ -8,13 +8,13 @@ const GoogleLogin = () => {
   useEffect(() => {
     getAuth.onAuthStateChanged((user) => {
       setUser(user);
-      console.log(user);
+      // console.log(user);
     });
   }, []);
   useEffect(() => {
     getAuth.onAuthStateChanged((img) => {
       setImg(img);
-      console.log(img);
+      // console.log(img);
     });
   }, []);
   return (

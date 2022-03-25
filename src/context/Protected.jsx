@@ -28,7 +28,7 @@ const ProtectedContext = ({ children }) => {
               img: data.img,
             };
           });
-          console.log("onSnap", tweets);
+          // console.log("onSnap", tweets);
           setTweets(tweets);
         },
         (err) => console.log(err, "error on")
