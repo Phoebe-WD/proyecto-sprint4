@@ -12,7 +12,14 @@
   width: 50%;
 }
 .Login .Login-Cont {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px;
+  margin: 0 auto;
+  margin-top: 50px;
+  gap: 20px;
 }
 .Login-Cont h1 {
   font-size: 50px;
