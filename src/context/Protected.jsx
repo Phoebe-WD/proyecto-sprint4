@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { getFirestore } from "../firebase/index";
+import Swal from "sweetalert2";
 
 const Context = createContext();
 
@@ -37,11 +38,24 @@ const ProtectedContext = ({ children }) => {
   }, []);
 
   const deleteTweet = (id) => {
-    const nuevosTweets = tweets.filter((tweet) => {
-      return tweet.id !== id;
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#800fff",
+      cancelButtonColor: "#2e132c",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your tweet has been deleted.", "success");
+        const nuevosTweets = tweets.filter((tweet) => {
+          return tweet.id !== id;
+        });
+        setTweets(nuevosTweets);
+        getFirestore.doc(`Tweet/${id}`).delete();
+      }
     });
-    setTweets(nuevosTweets);
-    getFirestore.doc(`Tweet/${id}`).delete();
   };
 
   const likeTweet = (id, likedBy) => {

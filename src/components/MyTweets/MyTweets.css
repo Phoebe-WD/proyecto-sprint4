@@ -53,6 +53,7 @@
 }
 .MyTweets .Tweet-autor .tweet-trash .fa-solid.fa-trash-can {
   color: #fff;
+  cursor: pointer;
 }
 
 .MyTweets .tweet-text {
